@@ -1,0 +1,17 @@
+{
+  "name": "courses_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ella Chao",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "redis": "^2.6.3",
+    "sqlite3": "^3.1.8",
+    "url": "^0.11.0"
+  }
+}

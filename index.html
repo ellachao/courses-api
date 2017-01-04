@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses API</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Courses API</h1>
+    <h2>Overview</h2>
+    <p>
+        Courses API allows you to query Wellesley course data with ease. Currently it is built using Node.js and Sqlite.
+        Successful requests will return JSON responses.
+    </p>
+    <h2>Dependencies</h2>
+    <ul>
+        <li><a href="https://nodejs.org/en/">Node.js</a></li>
+        <li><a href="https://sqlite.org/index.html">SQlite</a></li>
+        <li><a href="https://redis.io/">Redis</a></li>
+    </ul>
+    <h2>Getting Started</h2>
+    <p>
+    	Run <code>npm install</code> from directory to install all dependencies. <br>
+        Start the app by running: <code>node index.js</code><br>
+        Navigate to: <code>http://localhost:8000/</code>
+    </p>
+    <h2>Usage</h2>
+    <p>
+        The API entry point is at <code>http://localhost:8000/courses</code>.<br>
+        The following parameters can be used for filtering.
+    </p>
+    <ul>
+        <ol><code>term</code> - The term the course is offered in. For exmaple, fall term of 2009 will be 200009.</ol>
+        <ol><code>crn</code> - The crn of the course.</ol>
+        <ol><code>department</code> - The department that offered the course. Use abbreviation. For example, Psychology will be PSYC.</ol>
+        <ol><code>number</code> - Course number.</ol>
+        <ol><code>title</code> - Course title. Both exact and partial matches are supported.</ol>
+        <ol><code>seats</code> - Seats available.</ol>
+        <ol><code>enrollment</code> - Current enrollment.</ol>
+        <ol><code>title</code> - Course title. Both exact and partial matches are supported.</ol>
+        <ol><code>distribution</code> - Distribution that the course satisfies.</ol>
+        <ol><code>instructor</code> - Instructor who taught the course. Can use first, last, or full name.</ol>
+        <ol><code>days</code> - Day that the course meets on. Use M for Monday, T for Tuesday, W for Wednesday, R for Thursday, and F for 
+            Friday.
+        </ol>
+    </ul>
+    <h3>Request</h3>
+    <p>
+        The following query will return all the courses offered by the Political Science department in fall 2009 that satisfy the Social and   
+        Behavioral Analysis distribution.<br>
+        <code>http://localhost:8000/courses/?term=200009&distribution=Social and Behavioral Analysis&department=POL</code>
+    </p>
+    <h3>Response</h3>
+    <p>
+        If the query is successful, the following will be returned.<br>
+        <code>
+            [
+                {
+                "term": "200009",
+                "crn": "11503",
+                "course": "POL100",
+                "section": "01",
+                "title": "Intro to Political Science",
+                "seats": "35",
+                "enrollment": "21",
+                "instructor": "Lois Wasserspring",
+                "distribution": "Social and Behavioral Analysis",
+                "meeting time(s)": "TF - 8:30-9:40",
+                "location": "FND102"
+                },
+                {
+                "term": "200009",
+                "crn": "11504",
+                "course": "POL100",
+                "section": "02",
+                "title": "Intro to Political Science",
+                "seats": "35",
+                "enrollment": "26",
+                "instructor": "Marion Just",
+                "distribution": "Social and Behavioral Analysis",
+                "meeting time(s)": "TF - 13:30-14:40",
+                "location": "LIBLEC"
+                },
+                {
+                "term": "200009",
+                "crn": "11505",
+                "course": "POL100",
+                "section": "03",
+                "title": "Intro to Political Science",
+                "seats": "35",
+                "enrollment": "24",
+                "instructor": "William Joseph",
+                "distribution": "Social and Behavioral Analysis",
+                "meeting time(s)": "TF - 9:50-11:00",
+                "location": "LIBLEC"
+                },
+                {
+                "term": "200009",
+                "crn": "11506",
+                "course": "POL100",
+                "section": "04",
+                "title": "Intro to Political Science",
+                "seats": "35",
+                "enrollment": "26",
+                "instructor": "Debra Candreva",
+                "distribution": "Social and Behavioral Analysis",
+                "meeting time(s)": "MR - 16:10-17:20",
+                "location": "FND128"
+                }
+            ]
+        </code>
+    </p>
+</body>
+</html>
